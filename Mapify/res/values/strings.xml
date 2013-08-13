@@ -2,7 +2,16 @@
 <resources>
 
     <string name="app_name">Mapify</string>
+    <string name="subtitle">Classifieds Made Easy</string>
+    <string name="new_user_msg">Need an account?</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="api_key">accatitheysaincedividepe</string>
+    <string name="api_pass">C8XCoeEdT6TxA1N4nkqKXiI5</string>
+    <string name="accounts_query">https://rueand713.cloudant.com/mapify/mapify_accounts</string>
+    <string name="sign_in">Sign In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="create_account">Create one here.</string>
 
 </resources>

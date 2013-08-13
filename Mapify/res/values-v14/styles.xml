@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme for API 14+. This theme completely replaces
@@ -7,6 +7,18 @@
     -->
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- API 14 theme customizations can go here. -->
+    </style>
+    
+    <style name="TextField">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:padding">2dip</item>
+        <item name="android:inputType">text</item>
+    </style>
+    
+    <style name="PasswordField">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:padding">2dip</item>
+        <item name="android:inputType">textPassword</item>
     </style>
 
 </resources>

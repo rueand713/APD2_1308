@@ -187,21 +187,29 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020018;
     }
     public static final class id {
-        public static final int action_settings=0x7f080005;
+        public static final int action_settings=0x7f080009;
         public static final int hybrid=0x7f080004;
+        public static final int newuser_button=0x7f080008;
         public static final int none=0x7f080000;
         public static final int normal=0x7f080001;
         public static final int satellite=0x7f080002;
+        public static final int signin_button=0x7f080007;
+        public static final int signin_password=0x7f080006;
+        public static final int signin_username=0x7f080005;
         public static final int terrain=0x7f080003;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int activity_signin=0x7f030001;
     }
     public static final class menu {
         public static final int main=0x7f090000;
     }
     public static final class string {
+        public static final int accounts_query=0x7f05001c;
         public static final int action_settings=0x7f050001;
+        public static final int api_key=0x7f05001a;
+        public static final int api_pass=0x7f05001b;
         public static final int app_name=0x7f050000;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
@@ -281,7 +289,13 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f050011;
+        public static final int create_account=0x7f050020;
         public static final int hello_world=0x7f050002;
+        public static final int new_user_msg=0x7f050019;
+        public static final int password=0x7f05001f;
+        public static final int sign_in=0x7f05001d;
+        public static final int subtitle=0x7f050018;
+        public static final int username=0x7f05001e;
     }
     public static final class style {
         /** 
@@ -332,6 +346,8 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        public static final int PasswordField=0x7f060003;
+        public static final int TextField=0x7f060002;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.
