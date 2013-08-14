@@ -10,24 +10,24 @@
     </style>
     
     <style name="TextField">
-        <item name="android:background">@android:color/white</item>
         <item name="android:padding">2dip</item>
         <item name="android:inputType">text</item>
+        <item name="android:background">@drawable/textfields</item>
     </style>
     
     <style name="PasswordField">
-        <item name="android:background">@android:color/white</item>
         <item name="android:padding">2dip</item>
         <item name="android:inputType">textPassword</item>
+        <item name="android:background">@drawable/textfields</item>
     </style>
     
     <style name="Title">
-        <item name="android:textColor">@android:color/holo_blue_light</item>
+        <item name="android:textColor">@android:color/holo_blue_dark</item>
         <item name="android:textSize">36sp</item>
     </style>
     
     <style name="SubTitle">
-        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textColor">@android:color/holo_blue_light</item>
         <item name="android:textSize">16sp</item>
     </style>
 
