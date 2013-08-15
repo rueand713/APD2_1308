@@ -68,8 +68,10 @@ int id signin_button 0x7f080008
 int id signin_password 0x7f080007
 int id signin_username 0x7f080006
 int id terrain 0x7f080003
-int layout activity_main 0x7f030000
-int layout activity_signin 0x7f030001
+int layout activity_home 0x7f030000
+int layout activity_main 0x7f030001
+int layout activity_new_account 0x7f030002
+int layout activity_signin 0x7f030003
 int menu main 0x7f090000
 int string accounts_query 0x7f05001c
 int string action_settings 0x7f050001

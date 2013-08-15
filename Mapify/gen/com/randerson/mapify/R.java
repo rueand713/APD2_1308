@@ -206,8 +206,10 @@ containing a value of this type.
         public static final int terrain=0x7f080003;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int activity_signin=0x7f030001;
+        public static final int activity_home=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int activity_new_account=0x7f030002;
+        public static final int activity_signin=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f090000;
