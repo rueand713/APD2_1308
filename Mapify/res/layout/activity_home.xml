@@ -4,5 +4,118 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        style="@style/Title"
+        android:layout_marginLeft="30dip"
+        android:layout_marginTop="10dip"/>
+    
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/subtitle"
+        style="@style/SubTitle"
+        android:layout_marginLeft="30dip"/>
+    
+	<ScrollView android:layout_width="match_parent"
+	    android:layout_height="wrap_content">
+	    
+	    <LinearLayout android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:padding="20dip">
+	    
+	        <Button android:id="@+id/post_btn"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/post_btn"/>
+	    
+	        <LinearLayout android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal"
+	            style="?android:attr/buttonBarStyle"
+	            android:padding="10dip"
+	            android:layout_marginBottom="10dip">
+	            
+	            <Button android:id="@+id/clothes_btn"
+	            	android:layout_width="100dip"
+	            	android:layout_height="100dip"
+	            	style="?android:attr/buttonBarButtonStyle"
+	            	android:text="@string/view_clothes"/>
+	            
+	            <Button android:id="@+id/electronics_btn"
+	            	android:layout_width="100dip"
+	            	android:layout_height="100dip"
+	            	style="?android:attr/buttonBarButtonStyle"
+	            	android:text="@string/view_electronics"/>
+	            
+	            <Button android:id="@+id/furniture_btn"
+	            	android:layout_width="100dip"
+	            	android:layout_height="100dip"
+	            	style="?android:attr/buttonBarButtonStyle"
+	            	android:text="@string/view_furniture"/>
+	            
+	        </LinearLayout>
+	        
+	        <LinearLayout android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal"
+	            style="?android:attr/buttonBarStyle"
+	            android:padding="10dip"
+	            android:layout_marginBottom="10dip">
+	            
+	            <Button android:id="@+id/autos_btn"
+	            	android:layout_width="100dip"
+	            	android:layout_height="100dip"
+	            	style="?android:attr/buttonBarButtonStyle"
+	            	android:text="@string/view_autos"/>
+	            
+	            <Button android:id="@+id/homes_btn"
+	            	android:layout_width="100dip"
+	            	android:layout_height="100dip"
+	            	style="?android:attr/buttonBarButtonStyle"
+	            	android:text="@string/view_homes"/>
+	            
+	            <Button android:id="@+id/appliances_btn"
+	            	android:layout_width="100dip"
+	            	android:layout_height="100dip"
+	            	style="?android:attr/buttonBarButtonStyle"
+	            	android:text="@string/view_appliances"/>
+	            
+	        </LinearLayout>
+	        
+	        <LinearLayout android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal"
+	            style="?android:attr/buttonBarStyle"
+	            android:padding="10dip"
+	            android:layout_marginBottom="10dip">
+	            
+	            <Button android:id="@+id/boats_btn"
+	            	android:layout_width="100dip"
+	            	android:layout_height="100dip"
+	            	style="?android:attr/buttonBarButtonStyle"
+	            	android:text="@string/view_boats"/>
+	            
+	            <Button android:id="@+id/services_btn"
+	            	android:layout_width="100dip"
+	            	android:layout_height="100dip"
+	            	style="?android:attr/buttonBarButtonStyle"
+	            	android:text="@string/view_services"/>
+	            
+	            <Button android:id="@+id/jewelry_btn"
+	            	android:layout_width="100dip"
+	            	android:layout_height="100dip"
+	            	style="?android:attr/buttonBarButtonStyle"
+	            	android:text="@string/view_jewelry"/>
+	            
+	        </LinearLayout>
+	    
+	</LinearLayout>
+	    
+	</ScrollView>
+    
+    
 </LinearLayout>

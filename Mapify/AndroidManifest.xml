@@ -28,6 +28,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.randerson.mapify.NewAccountActivity"
+            android:parentActivityName="com.randerson.mapify.SignInActivity"
+            android:label="@string/blank"></activity>
+        <activity android:name="com.randerson.mapify.HomeActivity"
+            android:label="@string/blank"></activity>
+        <activity android:name="com.randerson.mapify.ViewAdActivity"
+            android:parentActivityName="com.randerson.mapify.HomeActivity"
+            android:label="@string/blank"></activity>
+        <activity android:name="com.randerson.mapify.SettingsActivity"
+            android:parentActivityName="com.randerson.mapify.HomeActivity"
+            android:label="@string/blank"></activity>
+        <activity android:name="com.randerson.mapify.PostAdActivity"
+            android:parentActivityName="com.randerson.mapify.HomeActivity"
+            android:label="@string/blank"></activity>
+        <activity android:name="com.randerson.mapify.AdDetailsActivity"
+            android:parentActivityName="com.randerson.mapify.ViewAdActivity"
+            android:label="@string/blank"></activity>
     </application>
 
 </manifest>

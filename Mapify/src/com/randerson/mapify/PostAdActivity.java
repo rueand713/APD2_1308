@@ -6,14 +6,11 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.Toast;
 
-public class NewAccountActivity extends Activity {
+public class PostAdActivity extends Activity {
 
-	InterfaceManager UIFactory;
+InterfaceManager UIFactory;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,35 +26,7 @@ public class NewAccountActivity extends Activity {
 		// allow the icon on the actionbar to act as navigation
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
-		setContentView(R.layout.activity_new_account);
-		
-		// create the button reference
-		Button createAcct = (Button) findViewById(R.id.createAccount);
-		
-		// verify that the createAcct button is valid
-		if (createAcct != null)
-		{
-			// set the button click listener
-			createAcct.setOnClickListener(new View.OnClickListener() {
-				
-				@Override
-				public void onClick(View v) {
-					
-					// create a success toast (this will be of a success or fail in future)
-					Toast status = UIFactory.createToast("Account Created", false);
-					
-					// verify that the toast is valid
-					if (status != null)
-					{
-						// show the toast
-						status.show();
-					}
-					
-					// call the finish method to end the activity
-					finish();
-				}
-			});
-		}
+		setContentView(R.layout.activity_post_ad);
 	}
 
 	@Override
@@ -73,7 +42,7 @@ public class NewAccountActivity extends Activity {
 		/*
 		if (item.getItemId() == android.R.id.home)
 		{
-			Intent home = UIFactory.makeIntent(SignInActivity.class);
+			Intent home = UIFactory.makeIntent(HomeActivity.class);
 			
 			// verify that the home intent has been set properly
 			if (home != null)
@@ -87,6 +56,5 @@ public class NewAccountActivity extends Activity {
 		*/
 		return super.onOptionsItemSelected(item);
 	}
-
 	
 }

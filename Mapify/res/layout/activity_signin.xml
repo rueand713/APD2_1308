@@ -37,6 +37,7 @@
         	android:layout_width="match_parent"
         	android:layout_height="40dip"
         	style="@style/TextField"
+        	android:maxLength="16"
         	android:hint="@string/username"/>
     
     	<LinearLayout
@@ -50,6 +51,7 @@
         		android:layout_height="40dip"
         		android:layout_weight="3"
         		style="@style/PasswordField"
+        		android:maxLength="16"
         		android:hint="@string/password"/>
     	
     		<Button android:id="@+id/signin_button"

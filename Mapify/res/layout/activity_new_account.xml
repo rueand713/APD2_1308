@@ -2,7 +2,209 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@drawable/main_bg"
+    android:padding="20dip"
+    android:orientation="vertical">
     
-
+	<TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        style="@style/Title"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip"/>
+	
+	<TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/acct_create"
+        style="@style/SubTitle"
+        android:layout_marginLeft="15dip"/>
+	
+	<ScrollView android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dip">
+	    
+	    <LinearLayout android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical">
+	        
+	        <LinearLayout android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="vertical"
+			    android:background="@android:color/white"
+			    android:layout_marginTop="20dip">
+	    
+			    <TextView android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:text="@string/info_text"
+			        android:layout_marginBottom="5dip"
+			        style="@style/Headers"/>
+			    
+			    <EditText android:id="@+id/newacct_fname"
+		        	android:layout_width="match_parent"
+		        	android:layout_height="45dip"
+		        	android:layout_marginBottom="5dip"
+		        	style="@style/TextField"
+		        	android:maxLength="18"
+		        	android:hint="@string/fname"/>
+			
+				<EditText android:id="@+id/newacct_lname"
+		        	android:layout_width="match_parent"
+		        	android:layout_height="45dip"
+		        	android:layout_marginBottom="5dip"
+		        	style="@style/TextField"
+		        	android:maxLength="18"
+		        	android:hint="@string/lname"/>
+				
+				<EditText android:id="@+id/newacct_phone"
+				    android:layout_width="match_parent"
+				    android:layout_height="45dip"
+				    android:layout_marginBottom="5dip"
+				    style="@style/TextField"
+				    android:maxLength="10"
+				    android:inputType="phone"
+				    android:hint="@string/phone_num"/>
+			    
+			</LinearLayout>
+			
+			<LinearLayout android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="@android:color/white"
+			    android:orientation="vertical"
+			    android:layout_marginTop="20dip">
+			    
+			    <TextView android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:text="@string/birthday_text"
+			        android:layout_marginBottom="5dip"
+			        style="@style/Headers"/>
+			    
+			    <EditText android:id="@+id/newacct_month"
+			        android:layout_width="match_parent"
+			        android:layout_height="45dip"
+			        android:layout_marginBottom="5dip"
+			        style="@style/TextField"
+			        android:maxLength="2"
+			        android:inputType="number"
+			        android:hint="@string/dob_month"/>
+			    
+			    <EditText android:id="@+id/newacct_day"
+			        android:layout_width="match_parent"
+			        android:layout_height="45dip"
+			        android:layout_marginBottom="5dip"
+			        style="@style/TextField"
+			        android:maxLength="2"
+			        android:inputType="number"
+			        android:hint="@string/dob_day"/>
+			    
+			    <EditText android:id="@+id/newacct_year"
+			        android:layout_width="match_parent"
+			        android:layout_height="45dip"
+			        android:layout_marginBottom="5dip"
+			        style="@style/TextField"
+			        android:maxLength="4"
+			        android:inputType="number"
+			        android:hint="@string/dob_year"/>
+				    
+			</LinearLayout>
+			
+			<LinearLayout android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="vertical"
+			    android:background="@android:color/white"
+			    android:layout_marginTop="20dip">
+				
+			    <TextView android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:text="@string/location"
+			        android:layout_marginBottom="5dip"
+			        style="@style/Headers"/>
+			    
+			    <EditText android:id="@+id/newacct_city"
+			        android:layout_width="match_parent"
+			        android:layout_height="45dip"
+			        android:layout_marginBottom="5dip"
+			        style="@style/TextField"
+			        android:maxLength="18"
+			        android:hint="@string/city"/>
+			
+				<EditText android:id="@+id/newacct_state"
+			        android:layout_width="match_parent"
+			        android:layout_height="45dip"
+			        android:layout_marginBottom="5dip"
+			        style="@style/TextField"
+			        android:maxLength="2"
+			        android:hint="@string/state"/>
+				
+				<EditText android:id="@+id/newacct_country"
+			        android:layout_width="match_parent"
+			        android:layout_height="45dip"
+			        android:layout_marginBottom="5dip"
+			        style="@style/TextField"
+			        android:maxLength="2"
+			        android:hint="@string/country"/>
+			    
+			</LinearLayout>
+			
+			<LinearLayout android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="vertical"
+			    android:background="@android:color/white"
+			    android:layout_marginTop="20dip">
+				
+			    <TextView android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:text="@string/acct_text"
+			        android:layout_marginBottom="5dip"
+			        style="@style/Headers"/>
+			    
+			    <EditText android:id="@+id/newacct_username"
+			        android:layout_width="match_parent"
+			        android:layout_height="45dip"
+			        android:layout_marginBottom="5dip"
+			        style="@style/TextField"
+			        android:maxLength="16"
+			        android:hint="@string/username"/>
+			
+				<EditText android:id="@+id/newacct_password"
+			        android:layout_width="match_parent"
+			        android:layout_height="45dip"
+			        android:layout_marginBottom="5dip"
+			        style="@style/PasswordField"
+			        android:maxLength="16"
+			        android:hint="@string/password"/>
+				
+				<EditText android:id="@+id/newacct_pwd_confirm"
+			        android:layout_width="match_parent"
+			        android:layout_height="45dip"
+			        android:layout_marginBottom="5dip"
+			        style="@style/PasswordField"
+			        android:maxLength="16"
+			        android:hint="@string/pass_confirm"/>
+				
+				<EditText android:id="@+id/newacct_email"
+			        android:layout_width="match_parent"
+			        android:layout_height="45dip"
+			        android:layout_marginBottom="5dip"
+			        style="@style/TextField"
+			        android:maxLength="32"
+			        android:inputType="textEmailAddress"
+			        android:hint="@string/email"/>
+			    
+			</LinearLayout>
+	        
+			<Button android:id="@+id/createAccount"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:text="@string/create_btn"
+			    android:background="@drawable/button_click"
+			    android:layout_marginTop="10dip"
+			    android:layout_marginBottom="5dip"
+			    android:textSize="18sp"/>
+			
+	    </LinearLayout>
+	    
+	</ScrollView>
+	
 </LinearLayout>

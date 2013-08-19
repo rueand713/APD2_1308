@@ -3,6 +3,8 @@
 
     <string name="app_name">Mapify</string>
     <string name="subtitle">Classifieds Made Easy</string>
+    <string name="quit">Log out</string>
+    <string name="blank"></string>
     <string name="new_user_msg">Need an account?</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
@@ -14,5 +16,38 @@
     <string name="password">Password</string>
     <string name="create_account">Create one here.</string>
     <string name="logo_info">App Branding</string>
+    <string name="fname">First Name</string>
+    <string name="lname">Last Name</string>
+    <string name="dob_day">Day</string>
+    <string name="dob_month">Month</string>
+    <string name="dob_year">Year</string>
+    <string name="birthday_text">Date of birth</string>
+    <string name="city">City</string>
+    <string name="state">State Abbr.</string>
+    <string name="country">Country Code</string>
+    <string name="info_text">Contact Details</string>
+    <string name="acct_text">Account Details</string>
+    <string name="phone_num">Phone Number</string>
+    <string name="pass_confirm">Confirm Password</string>
+    <string name="email">Email Address</string>
+    <string name="location">Location Details</string>
+    <string name="acct_create">Create An Account</string>
+    <string name="create_btn">Create Account</string>
+    <string name="post_btn">Post Ad</string>
+    <string name="view_autos">Autos</string>
+    <string name="view_boats">Boats</string>
+    <string name="view_clothes">Clothes</string>
+    <string name="view_electronics">Electronics</string>
+    <string name="view_homes">Homes</string>
+    <string name="view_appliances">Appliances</string>
+    <string name="view_services">Services</string>
+    <string name="view_jewelry">Jewelry</string>
+    <string name="view_furniture">Furniture</string>
+    <string name="new_ad_title">Write a catchy title for your ad</string>
+    <string name="new_ad_details">Describe your item or service</string>
+    <string name="new_ad_price">List the cost of your item or service</string>
+    <string name="user_profile">View Profile</string>
+    <string name="user_call">Call</string>
+    <string name="user_email">E-mail</string>
 
 </resources>
