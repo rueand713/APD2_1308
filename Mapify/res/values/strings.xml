@@ -25,10 +25,12 @@
     <string name="city">City</string>
     <string name="state">State Abbr.</string>
     <string name="country">Country Code</string>
-    <string name="info_text">Contact Details</string>
+    <string name="info_text">Seller Details</string>
     <string name="acct_text">Account Details</string>
+    <string name="profile_text">Mission statement or seller background</string>
     <string name="phone_num">Phone Number</string>
     <string name="pass_confirm">Confirm Password</string>
+    <string name="new_pass">New Password</string>
     <string name="email">Email Address</string>
     <string name="location">Location Details</string>
     <string name="acct_create">Create An Account</string>
@@ -49,5 +51,13 @@
     <string name="user_profile">View Profile</string>
     <string name="user_call">Call</string>
     <string name="user_email">E-mail</string>
+    <string name="email_permission">All e-mail contact</string>
+    <string name="call_permission">Allow phone contact</string>
+    <string name="permission_text">Contact Permissions</string>
+    <string name="app_theme">Color Theme</string>
+    <string name="theme_a">Theme A</string>
+    <string name="theme_b">Theme B</string>
+    <string name="theme_c">Theme C</string>
+    <string name="theme_d">Theme D</string>
 
 </resources>

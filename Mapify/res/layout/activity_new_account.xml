@@ -33,7 +33,7 @@
 			    android:layout_height="wrap_content"
 			    android:orientation="vertical"
 			    android:background="@android:color/white"
-			    android:layout_marginTop="20dip">
+			    android:layout_marginTop="10dip">
 	    
 			    <TextView android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
@@ -65,6 +65,17 @@
 				    android:maxLength="10"
 				    android:inputType="phone"
 				    android:hint="@string/phone_num"/>
+				
+				<EditText android:id="@+id/user_details"
+		            android:layout_width="match_parent"
+		            android:layout_height="100dip"
+		            android:text="@string/blank"
+		            android:lines="7"
+		            android:maxLines="10"
+		            android:maxLength="150"
+		            android:inputType="text"
+		            android:hint="@string/profile_text"
+		            style="@style/TextField"/>
 			    
 			</LinearLayout>
 			
@@ -72,7 +83,7 @@
 			    android:layout_height="wrap_content"
 			    android:background="@android:color/white"
 			    android:orientation="vertical"
-			    android:layout_marginTop="20dip">
+			    android:layout_marginTop="4dip">
 			    
 			    <TextView android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
@@ -113,7 +124,7 @@
 			    android:layout_height="wrap_content"
 			    android:orientation="vertical"
 			    android:background="@android:color/white"
-			    android:layout_marginTop="20dip">
+			    android:layout_marginTop="4dip">
 				
 			    <TextView android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
@@ -151,7 +162,7 @@
 			    android:layout_height="wrap_content"
 			    android:orientation="vertical"
 			    android:background="@android:color/white"
-			    android:layout_marginTop="20dip">
+			    android:layout_marginTop="4dip">
 				
 			    <TextView android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
