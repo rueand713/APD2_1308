@@ -1,3 +1,13 @@
+/*
+ * project 		Mapify
+ * 
+ * package 		com.randerson.mapify
+ * 
+ * @author 		Rueben Anderson
+ * 
+ * date			Aug 22, 2013
+ * 
+ */
 package com.randerson.mapify;
 
 

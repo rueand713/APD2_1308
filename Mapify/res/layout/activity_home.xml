@@ -20,42 +20,57 @@
         android:layout_marginLeft="30dip"/>
     
 	<ScrollView android:layout_width="match_parent"
-	    android:layout_height="wrap_content">
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dip">
 	    
 	    <LinearLayout android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="vertical"
-	    android:padding="20dip">
+	    android:paddingLeft="20dip"
+	    android:paddingRight="20dip"
+	    android:paddingTop="10dip"
+	    android:paddingBottom="10dip">
 	    
 	        <Button android:id="@+id/post_btn"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            android:text="@string/post_btn"/>
+	            android:text="@string/post_btn"
+	            android:background="@drawable/button_click"
+            	android:textSize="18sp"
+            	android:textColor="@android:color/white"
+            	android:layout_marginBottom="10dip"/>
 	    
 	        <LinearLayout android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
 	            android:orientation="horizontal"
 	            style="?android:attr/buttonBarStyle"
-	            android:padding="10dip"
-	            android:layout_marginBottom="10dip">
+	            android:paddingLeft="20dip"
+	            android:paddingRight="20dip"
+	            android:layout_marginBottom="5dip">
 	            
 	            <Button android:id="@+id/clothes_btn"
 	            	android:layout_width="100dip"
 	            	android:layout_height="100dip"
 	            	style="?android:attr/buttonBarButtonStyle"
-	            	android:text="@string/view_clothes"/>
+	            	android:text="@string/view_clothes"
+	            	android:textColor="@android:color/white"
+	            	android:background="@drawable/blue_selector_btn"/>
 	            
 	            <Button android:id="@+id/electronics_btn"
 	            	android:layout_width="100dip"
 	            	android:layout_height="100dip"
 	            	style="?android:attr/buttonBarButtonStyle"
-	            	android:text="@string/view_electronics"/>
+	            	android:text="@string/view_electronics"
+	            	android:textColor="@android:color/white"
+	            	android:background="@drawable/gray_selector_btn"/>
 	            
 	            <Button android:id="@+id/furniture_btn"
 	            	android:layout_width="100dip"
 	            	android:layout_height="100dip"
 	            	style="?android:attr/buttonBarButtonStyle"
-	            	android:text="@string/view_furniture"/>
+	            	android:text="@string/view_furniture"
+	            	android:textColor="@android:color/white"
+	            	android:background="@drawable/green_selector_btn"/>
 	            
 	        </LinearLayout>
 	        
@@ -63,26 +78,33 @@
 	            android:layout_height="wrap_content"
 	            android:orientation="horizontal"
 	            style="?android:attr/buttonBarStyle"
-	            android:padding="10dip"
-	            android:layout_marginBottom="10dip">
+	            android:paddingLeft="20dip"
+	            android:paddingRight="20dip"
+	            android:layout_marginBottom="5dip">
 	            
 	            <Button android:id="@+id/autos_btn"
 	            	android:layout_width="100dip"
 	            	android:layout_height="100dip"
 	            	style="?android:attr/buttonBarButtonStyle"
-	            	android:text="@string/view_autos"/>
+	            	android:text="@string/view_autos"
+	            	android:textColor="@android:color/white"
+	            	android:background="@drawable/red_selector_btn"/>
 	            
 	            <Button android:id="@+id/homes_btn"
 	            	android:layout_width="100dip"
 	            	android:layout_height="100dip"
 	            	style="?android:attr/buttonBarButtonStyle"
-	            	android:text="@string/view_homes"/>
+	            	android:text="@string/view_homes"
+	            	android:textColor="@android:color/white"
+	            	android:background="@drawable/yellow_selector_btn"/>
 	            
 	            <Button android:id="@+id/appliances_btn"
 	            	android:layout_width="100dip"
 	            	android:layout_height="100dip"
 	            	style="?android:attr/buttonBarButtonStyle"
-	            	android:text="@string/view_appliances"/>
+	            	android:text="@string/view_appliances"
+	            	android:textColor="@android:color/white"
+	            	android:background="@drawable/purple_selector_btn"/>
 	            
 	        </LinearLayout>
 	        
@@ -90,26 +112,33 @@
 	            android:layout_height="wrap_content"
 	            android:orientation="horizontal"
 	            style="?android:attr/buttonBarStyle"
-	            android:padding="10dip"
-	            android:layout_marginBottom="10dip">
+	            android:paddingLeft="20dip"
+	            android:paddingRight="20dip"
+	            android:layout_marginBottom="5dip">
 	            
 	            <Button android:id="@+id/boats_btn"
 	            	android:layout_width="100dip"
 	            	android:layout_height="100dip"
 	            	style="?android:attr/buttonBarButtonStyle"
-	            	android:text="@string/view_boats"/>
+	            	android:text="@string/view_boats"
+	            	android:textColor="@android:color/white"
+	            	android:background="@drawable/cyan_selector_btn"/>
 	            
 	            <Button android:id="@+id/services_btn"
 	            	android:layout_width="100dip"
 	            	android:layout_height="100dip"
 	            	style="?android:attr/buttonBarButtonStyle"
-	            	android:text="@string/view_services"/>
+	            	android:text="@string/view_services"
+	            	android:textColor="@android:color/white"
+	            	android:background="@drawable/pink_selector_btn"/>
 	            
 	            <Button android:id="@+id/jewelry_btn"
 	            	android:layout_width="100dip"
 	            	android:layout_height="100dip"
 	            	style="?android:attr/buttonBarButtonStyle"
-	            	android:text="@string/view_jewelry"/>
+	            	android:text="@string/view_jewelry"
+	            	android:textColor="@android:color/white"
+	            	android:background="@drawable/orange_selector_btn"/>
 	            
 	        </LinearLayout>
 	    

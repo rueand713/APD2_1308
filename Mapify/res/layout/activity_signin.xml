@@ -59,6 +59,7 @@
     	    	android:layout_weight="1.5"
     	    	android:layout_height="40dip"
     	    	android:text="@string/sign_in"
+    	    	android:textColor="@android:color/white"
     	    	android:background="@drawable/button_click"
     	    	android:textSize="18sp"/>
     	    

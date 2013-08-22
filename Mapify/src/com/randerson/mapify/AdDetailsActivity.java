@@ -1,12 +1,24 @@
+/*
+ * project 		Mapify
+ * 
+ * package 		com.randerson.mapify
+ * 
+ * @author 		Rueben Anderson
+ * 
+ * date			Aug 22, 2013
+ * 
+ */
 package com.randerson.mapify;
 
 import libs.InterfaceManager;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 public class AdDetailsActivity extends Activity {
 
@@ -27,6 +39,34 @@ InterfaceManager UIFactory;
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		setContentView(R.layout.activity_ad_details);
+		
+		Intent dataDetails = getIntent();
+		
+		if (dataDetails != null)
+		{
+			Bundle bundle = dataDetails.getExtras();
+			
+			if (bundle != null)
+			{
+				// set bundle properties to strings
+				String title = bundle.getString("title");
+				String price = bundle.getString("price");
+				String location = bundle.getString("location");
+				String details = bundle.getString("details");
+				
+				// set the textView references from layout
+				TextView titleView = (TextView) findViewById(R.id.title_field);
+				TextView priceView = (TextView) findViewById(R.id.price_field);
+				TextView locationView = (TextView) findViewById(R.id.location_field);
+				TextView detailView = (TextView) findViewById(R.id.details_field);
+				
+				// set the textview text
+				titleView.setText(title);
+				priceView.setText(price);
+				locationView.setText(location);
+				detailView.setText(details);
+			}
+		}
 
 	}
 

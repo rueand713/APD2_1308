@@ -41,6 +41,21 @@
         <item name="android:textStyle">italic</item>
     </style>
     
+    <style name="ListLocation">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+    
+    <style name="ListPrice">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    
+    <style name="ListTitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    
     <style name="SettingLayout">
         <item name="android:background">@drawable/textfields</item>
     </style>

@@ -59,5 +59,7 @@
     <string name="theme_b">Theme B</string>
     <string name="theme_c">Theme C</string>
     <string name="theme_d">Theme D</string>
+    <string name="save_btn">Save</string>
+    <string name="img_placeholder">Image</string>
 
 </resources>
