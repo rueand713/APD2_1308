@@ -61,5 +61,6 @@
     <string name="theme_d">Theme D</string>
     <string name="save_btn">Save</string>
     <string name="img_placeholder">Image</string>
+    <string name="submit_btn">Submit</string>
 
 </resources>

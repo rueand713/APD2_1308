@@ -70,7 +70,7 @@
 		            android:layout_width="match_parent"
 		            android:layout_height="100dip"
 		            android:text="@string/blank"
-		            android:lines="7"
+		            android:minLines="7"
 		            android:maxLines="10"
 		            android:maxLength="150"
 		            android:inputType="text"

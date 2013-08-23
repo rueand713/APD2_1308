@@ -1,12 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent">
     
-    <EditText android:id="@+id/ad_title"
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical"
+    android:background="@drawable/main_bg"
+    android:padding="30dip">
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="vertical"
+    	android:background="@android:color/white">
+        
+        <EditText android:id="@+id/ad_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/new_ad_title"/>
+        android:hint="@string/new_ad_title"
+        style="@style/TextField"
+        android:maxLength="64"
+        android:layout_marginBottom="2dip"/>
+    
+    <EditText android:id="@+id/ad_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/new_ad_price"
+        style="@style/TextField"
+        android:maxLength="10"
+        android:layout_marginBottom="2dip"/>
+    
+    <EditText android:id="@+id/ad_details"
+        android:layout_width="match_parent"
+        android:layout_height="100dip"
+        android:hint="@string/new_ad_details"
+        style="@style/TextField"
+        android:maxLength="150"
+        android:minLines="7"
+		android:maxLines="10"
+		android:layout_marginBottom="2dip"/>
+    
+    <RadioGroup android:id="@+id/ad_categories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/new_ad_title"
+        android:padding="20dip"
+        android:background="@drawable/textfields">
+        
+        <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/view_appliances"/>
+        <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/view_autos"/>
+        <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/view_boats"/>
+        <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/view_clothes"/>
+        <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/view_electronics"/>
+        <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/view_furniture"/>
+        <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/view_homes"/>
+        <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/view_jewelry"/>
+        <RadioButton android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/view_services"/>
+        
+        </RadioGroup>
+        
+    </LinearLayout>
+    
+    <Button android:id="@+id/add_ad_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/submit_btn"
+        android:background="@drawable/button_click"/>
 
 </LinearLayout>
+</ScrollView>
