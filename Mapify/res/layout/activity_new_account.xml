@@ -21,6 +21,24 @@
         style="@style/SubTitle"
         android:layout_marginLeft="15dip"/>
 	
+	<ScrollView android:id="@+id/errors_view"
+	    android:layout_width="match_parent"
+	    android:layout_height="50dip"
+	    android:visibility="gone">
+	    
+	    <LinearLayout android:id="@+id/error_layout"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:paddingLeft="20dip"
+	        android:paddingRight="20dip"
+	        android:paddingTop="10dip"
+	        android:paddingBottom="10dip">
+	        
+	    </LinearLayout>
+	    
+	</ScrollView>
+	
 	<ScrollView android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginTop="10dip">
@@ -62,7 +80,7 @@
 				    android:layout_height="45dip"
 				    android:layout_marginBottom="5dip"
 				    style="@style/TextField"
-				    android:maxLength="10"
+				    android:maxLength="12"
 				    android:inputType="phone"
 				    android:hint="@string/phone_num"/>
 				
@@ -91,32 +109,13 @@
 			        android:layout_marginBottom="5dip"
 			        style="@style/Headers"/>
 			    
-			    <EditText android:id="@+id/newacct_month"
+			    <Button android:id="@+id/newacct_dob"
 			        android:layout_width="match_parent"
-			        android:layout_height="45dip"
+			        android:layout_height="wrap_content"
 			        android:layout_marginBottom="5dip"
-			        style="@style/TextField"
-			        android:maxLength="2"
-			        android:inputType="number"
-			        android:hint="@string/dob_month"/>
-			    
-			    <EditText android:id="@+id/newacct_day"
-			        android:layout_width="match_parent"
-			        android:layout_height="45dip"
-			        android:layout_marginBottom="5dip"
-			        style="@style/TextField"
-			        android:maxLength="2"
-			        android:inputType="number"
-			        android:hint="@string/dob_day"/>
-			    
-			    <EditText android:id="@+id/newacct_year"
-			        android:layout_width="match_parent"
-			        android:layout_height="45dip"
-			        android:layout_marginBottom="5dip"
-			        style="@style/TextField"
-			        android:maxLength="4"
-			        android:inputType="number"
-			        android:hint="@string/dob_year"/>
+			        android:background="@drawable/button_click"
+			    	android:textColor="@android:color/white"
+			        android:text="@string/set_dob_btn"/>
 				    
 			</LinearLayout>
 			
@@ -140,21 +139,13 @@
 			        android:maxLength="18"
 			        android:hint="@string/city"/>
 			
-				<EditText android:id="@+id/newacct_state"
+				<Spinner android:id="@+id/newacct_state"
 			        android:layout_width="match_parent"
 			        android:layout_height="45dip"
 			        android:layout_marginBottom="5dip"
 			        style="@style/TextField"
 			        android:maxLength="2"
 			        android:hint="@string/state"/>
-				
-				<EditText android:id="@+id/newacct_country"
-			        android:layout_width="match_parent"
-			        android:layout_height="45dip"
-			        android:layout_marginBottom="5dip"
-			        style="@style/TextField"
-			        android:maxLength="2"
-			        android:hint="@string/country"/>
 			    
 			</LinearLayout>
 			
@@ -209,8 +200,8 @@
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
 			    android:text="@string/create_btn"
-			    android:background="@drawable/button_click"
 			    android:layout_marginTop="10dip"
+			    android:background="@drawable/button_click"
 			    android:textColor="@android:color/white"
 			    android:layout_marginBottom="5dip"
 			    android:textSize="18sp"/>

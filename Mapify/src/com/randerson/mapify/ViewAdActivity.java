@@ -105,8 +105,7 @@ UniArray details;
 		});
 		
 		populateList();
-		
-		
+				
 	}
 
 	@Override

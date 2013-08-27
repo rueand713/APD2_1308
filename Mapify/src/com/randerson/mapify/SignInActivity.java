@@ -10,8 +10,16 @@
  */
 package com.randerson.mapify;
 
+import org.json.JSONObject;
+
+import com.randerson.classes.DetailService;
+
 import libs.InterfaceManager;
+import libs.JSONhandler;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Messenger;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -20,10 +28,13 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class SignInActivity extends Activity {
 
 	InterfaceManager UIFactory;
+	String USERNAME = null;
+	String PASSWORD = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +49,90 @@ public class SignInActivity extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); 
 		
 		setContentView(R.layout.activity_signin);
+		
+		final Handler accountHandler = new Handler()
+		{
+			@Override
+			public void handleMessage(Message msg) {
+				super.handleMessage(msg);
+				
+				if (msg.arg1 == RESULT_OK && msg.obj != null)
+				{
+					// set the string to the response text
+					String result = (String) msg.obj;
+					
+					// init a JSONhandler singleton for parsing the data
+					JSONhandler jsOn = new JSONhandler(result);
+
+					// set the password from the json data
+					String userPassword = jsOn.getValue("password");
+					
+					// verify that the password supplied matches the password in the json
+					if (userPassword != null && userPassword.equals(PASSWORD))
+					{
+						
+						// inform the user of invalid credentials
+						UIFactory.displayToast("Welcome back, " + USERNAME + "!", false);
+						
+						// create the home screen intent
+						Intent homeScreen = UIFactory.makeIntent(HomeActivity.class);
+						
+						if (homeScreen != null)
+						{
+							// start the home screen activity
+							startActivity(homeScreen);
+						}
+					}
+				}
+			}
+		};
+		
+		// create the service callback handler
+		final Handler requestHandler = new Handler()
+		{
+			@Override
+			public void handleMessage(Message msg) {
+				super.handleMessage(msg);
+				
+				// verify that the data was returned fine
+				if (msg.arg1 == RESULT_OK && msg.obj != null)
+				{
+					// set the string to the response text
+					String m = (String) msg.obj;
+					
+					// init a JSONhandler singleton for parsing the data
+					JSONhandler jsOn = new JSONhandler(m);
+
+					// set the value string to the parsed json
+					JSONObject accounts = jsOn.getJSONArray("rows").getObjectAtIndex(0).returnJSONobject();
+					boolean userExists = accounts.has("key");
+					
+					// verify that the user account is valid
+					if (userExists)
+					{
+						Messenger accountMsngr = new Messenger(accountHandler);
+						
+						// create the intent to gather the detailed account data
+						Intent accountRequest = UIFactory.makeIntent(DetailService.class);
+						
+						// retrieve the mapify cloudant query url
+						String urlValue = getString(R.string.accounts_uri) + USERNAME;
+						
+						// add the url and messenger objects to the intent
+						accountRequest.putExtra("Url", urlValue);
+						accountRequest.putExtra("Messenger", accountMsngr);
+						
+						// begin the service
+						startService(accountRequest);
+					}
+					else
+					{
+						// inform the user of invalid credentials (username)
+						UIFactory.displayToast("Incorrect Username or Password", false);
+					}
+				}
+			}
+		};
 		
 		// create the newAcct button reference
 		Button newAcct = (Button) findViewById(R.id.newuser_button);
@@ -75,14 +170,40 @@ public class SignInActivity extends Activity {
 					@Override
 					public void onClick(View v) {
 						
-						// create the home screen intent
-						Intent homeScreen = UIFactory.makeIntent(HomeActivity.class);
+						// create EditText reference objects 
+						EditText usernameField = (EditText) findViewById(R.id.signin_username);
+						EditText passwordField = (EditText) findViewById(R.id.signin_password);
 						
-						if (homeScreen != null)
+						// set the credential strings to the EditText values
+						String username = usernameField.getText().toString();
+						String password = passwordField.getText().toString();
+						
+						if (username.length() >= 5 && username.length() < 16)
 						{
-							// start the home screen activity
-							startActivity(homeScreen);
+							if (password.length() >= 5 && password.length() < 16)
+							{
+								// set the glabal credential values to the verified local values
+								USERNAME = username;
+								PASSWORD = password;
+								
+								// create the messenger object for the handler
+								Messenger msngr = new Messenger(requestHandler);
+								
+								// create the intent to gather the app account details
+								Intent fetchAccountData = UIFactory.makeIntent(DetailService.class);
+								
+								// retrieve the mapify cloudant query url
+								String urlValue = getString(R.string.accounts_query) + '"' + USERNAME + '"';
+								
+								// add the url and messenger objects to the intent
+								fetchAccountData.putExtra("Url", urlValue);
+								fetchAccountData.putExtra("Messenger", msngr);
+								
+								// begin the service
+								startService(fetchAccountData);
+							}
 						}
+						
 					}
 				});
 			}

@@ -8,9 +8,12 @@
     <string name="new_user_msg">Need an account?</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="api_key">accatitheysaincedividepe</string>
-    <string name="api_pass">C8XCoeEdT6TxA1N4nkqKXiI5</string>
-    <string name="accounts_query">https://rueand713.cloudant.com/mapify/mapify_accounts</string>
+    <string name="api_key">tryouthabodepignardonswe</string>
+    <string name="api_pass">8AbceoknONhKtHQ86rjAc1Y7</string>
+    <string name="accounts_query">https://rueand713.cloudant.com/mapify/_all_docs?key=</string>
+    <string name="accounts_uri">https://rueand713.cloudant.com/mapify/</string>
+    <string name="account_session">https://rueand713.cloudant.com/_session</string>
+    <string name="account_roles">https://cloudant.com/api/set_permissions</string>
     <string name="sign_in">Sign In</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -62,5 +65,6 @@
     <string name="save_btn">Save</string>
     <string name="img_placeholder">Image</string>
     <string name="submit_btn">Submit</string>
+    <string name="set_dob_btn">Set Date of Birth</string>
 
 </resources>

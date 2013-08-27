@@ -59,6 +59,8 @@
         <activity android:name="com.randerson.mapify.AdDetailsActivity"
             android:parentActivityName="com.randerson.mapify.ViewAdActivity"
             android:label="@string/blank"></activity>
+        <service android:name="com.randerson.classes.DetailService"></service>
+        <service android:name="com.randerson.classes.RequestService"></service>
         
     </application>
 

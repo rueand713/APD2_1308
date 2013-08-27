@@ -42,9 +42,6 @@ public class DetailService extends IntentService {
 		Bundle mainBundle = intent.getExtras();
 		if (mainBundle != null)
 		{
-			
-			Log.i("Detail Service", "On Handle Intent");
-			
 			// the url to handle
 			URL url = null;
 			
