@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import com.randerson.classes.RequestService;
 
 import libs.CalendarPicker;
+import libs.FileSystem;
 import libs.InterfaceManager;
 import libs.RegExManager;
 import libs.UniArray;
@@ -282,9 +283,9 @@ public class NewAccountActivity extends Activity {
 						}
 					}
 					
-					int x = 1;
+					
 					// check that there were no errors reported before attempting account creation
-					if (errors.size() == 0 || 1 / x == 1)
+					if (errors.size() == 0)
 					{
 							
 						// add the user data to the JSON object
@@ -303,23 +304,27 @@ public class NewAccountActivity extends Activity {
 						accountDetails.putString("dob_year", birthYear);
 						
 						// save the stored user JSON data object
-						//FileSystem.writeObjectFile(getApplication(), accountDetails, "data", true);
+						FileSystem.writeObjectFile(getApplication(), accountDetails, "data", true);
 						
 						// create the messenger for the handler
 						Messenger msngr = new Messenger(requestHandler);
 						
+						// create an intent for the service
 						Intent createAccount = UIFactory.makeIntent(RequestService.class);
 						
+						// verify that the intent is valid
 						if (createAccount != null)
 						{
-							
+						
 							// add the intent extras for communicating the post and response
 							createAccount.putExtra(RequestService.URL_KEY, getString(R.string.accounts_uri));
 							createAccount.putExtra(RequestService.MESSENGER_KEY, msngr);
-							createAccount.putExtra(RequestService.AUTH_KEY, getString(R.string.account_roles));
+							//createAccount.putExtra(RequestService.AUTH_KEY, getString(R.string.account_session));
 							
 							// start the service
 							startService(createAccount);
+						
+							
 						}
 						
 					}
