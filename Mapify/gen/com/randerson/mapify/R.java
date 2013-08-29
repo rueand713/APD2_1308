@@ -311,8 +311,8 @@ containing a value of this type.
         public static final int secondary=0x7f0a0002;
     }
     public static final class string {
+        public static final int account_ad_posting=0x7f050020;
         public static final int account_roles=0x7f050021;
-        public static final int account_session=0x7f050020;
         public static final int accounts_query=0x7f05001e;
         public static final int accounts_uri=0x7f05001f;
         public static final int acct_create=0x7f050038;

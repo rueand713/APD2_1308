@@ -12,7 +12,7 @@
     <string name="api_pass">8AbceoknONhKtHQ86rjAc1Y7</string>
     <string name="accounts_query">https://rueand713.cloudant.com/mapify/_all_docs?key=</string>
     <string name="accounts_uri">https://rueand713.cloudant.com/mapify/</string>
-    <string name="account_session">https://rueand713.cloudant.com/_session</string>
+    <string name="account_ad_posting">https://rueand713.cloudant.com/mapify/_user_ads</string>
     <string name="account_roles">https://cloudant.com/api/set_permissions</string>
     <string name="sign_in">Sign In</string>
     <string name="username">Username</string>

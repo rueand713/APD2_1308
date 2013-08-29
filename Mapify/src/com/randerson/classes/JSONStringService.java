@@ -1,11 +1,6 @@
 package com.randerson.classes;
 
-import org.json.JSONObject;
-
-import libs.FileSystem;
 import libs.IOManager;
-import libs.JSONhandler;
-import libs.UniArray;
 import android.app.Activity;
 import android.app.IntentService;
 import android.content.Intent;
@@ -15,15 +10,14 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
 
-public class RequestService extends IntentService {
+public class JSONStringService extends IntentService {
 	
 	// service identifier keys
 	public static final String MESSENGER_KEY = "Messenger";
 	public static final String URL_KEY = "Url";
-	public static final String AUTH_KEY = "AuthKey";
 
-	public RequestService() {
-		super("RequestService");
+	public JSONStringService() {
+		super("JSONStringService");
 	}
 
 	@Override
@@ -35,9 +29,6 @@ public class RequestService extends IntentService {
 		// verify that the bundle is valid
 		if (bundle != null)
 		{
-			// get the bool for new or existing account request
-			// this will determine the type of json to send
-			//boolean isNewAccount = bundle.getBoolean("isNewAccount");
 			
 			// set the string url to the bundle's url string
 			String url = bundle.getString(URL_KEY);
@@ -57,21 +48,9 @@ public class RequestService extends IntentService {
 			// verify that the device has data connection
 			if (connected == true)
 			{
-				// load the stored userdata 
-				UniArray userData = (UniArray) FileSystem.readObjectFile(getApplication(), "data", true);
 				
-				// create a json object from the userdata
-				JSONObject json = JSONhandler.jsonify(userData);
-				
-				// nullify the cached user account details
-				userData = new UniArray();
-				FileSystem.writeObjectFile(getApplication(), userData, "data", true);
-				
-				// log the new json object
-				Log.i("JSON DATA", json.toString());
-				
-				// create the authentication params for cloudant
-				//String params = "name=" + getString(R.string.api_key) + "&password=" + getString(R.string.api_pass);
+				// get the stringified json object
+				String json = bundle.getString("jsonString");
 				
 				// make the request and get the returned resonse
 				response = IOManager.makePostRequest(url, json);
