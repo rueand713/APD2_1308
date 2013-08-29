@@ -300,7 +300,7 @@ public class HomeActivity extends Activity {
 			// put the data into the intent
 			intent.putExtra("username", USERNAME);
 			intent.putExtra("password", PASSWORD);
-			intent.putExtra("category", category);
+			intent.putExtra("category", Finals.returnCategory(category));
 		}
 	}
 

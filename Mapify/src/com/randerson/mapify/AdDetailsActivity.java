@@ -53,18 +53,21 @@ InterfaceManager UIFactory;
 				String price = bundle.getString("price");
 				String location = bundle.getString("location");
 				String details = bundle.getString("details");
+				String seller = bundle.getString("poster");
 				
 				// set the textView references from layout
 				TextView titleView = (TextView) findViewById(R.id.title_field);
 				TextView priceView = (TextView) findViewById(R.id.price_field);
 				TextView locationView = (TextView) findViewById(R.id.location_field);
 				TextView detailView = (TextView) findViewById(R.id.details_field);
+				TextView sellerView = (TextView) findViewById(R.id.seller_field);
 				
 				// set the textview text
 				titleView.setText(title);
 				priceView.setText(price);
 				locationView.setText(location);
 				detailView.setText(details);
+				sellerView.setText(seller);
 			}
 		}
 

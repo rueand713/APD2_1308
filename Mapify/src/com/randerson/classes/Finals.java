@@ -14,4 +14,54 @@ public class Finals {
 					 JEWELRY = 8,
 					 SERVICES = 9;
 	
+	public static String returnCategory(int catValue)
+	{
+		String category = "";
+		
+		switch(catValue)
+		{
+		case 1:
+			category = "Autos";
+			break;
+			
+		case 2:
+			category = "Boats";
+			break;
+			
+		case 3:
+			category = "Clothes";
+			break;
+			
+		case 4:
+			category = "Appliances";
+			break;
+			
+		case 5:
+			category = "Electronics";
+			break;
+			
+		case 6:
+			category = "Furniture";
+			break;
+			
+		case 7:
+			category = "Homes";
+			break;
+			
+		case 8:
+			category = "Jewelry";
+			break;
+			
+		case 9:
+			category = "Services";
+			break;
+			
+			default:
+				break;
+		
+		}
+		
+		return category;
+	}
+	
 }

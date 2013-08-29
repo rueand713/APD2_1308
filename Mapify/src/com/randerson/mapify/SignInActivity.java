@@ -260,10 +260,6 @@ public class SignInActivity extends Activity {
 			sessionData.putString("acct_user_rating", json.getString("acct_user_rating"));
 			sessionData.putString("acct_type", json.getString("acct_type"));
 			sessionData.putString("app_theme", json.getString("app_theme"));
-			
-			// store the account details data objects
-			//sessionData.putString("user_ads", json.getJSONObject("user_ads") + "");
-			//sessionData.putString("feedback_users", json.getJSONObject("feedback_users").toString());
 		}
 		catch (JSONException e)
 		{

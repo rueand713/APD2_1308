@@ -40,12 +40,15 @@ import android.widget.RadioGroup;
 
 public class PostAdActivity extends Activity {
 
+final String BASE_GEO_CODE_URL = "http://maps.googleapis.com/maps/api/geocode/json?address=";
+	
 InterfaceManager UIFactory;
 String details;
 String price;
 String title;
 String catString;
 UniArray sessionData;
+String latlon;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +133,45 @@ UniArray sessionData;
 			}
 		};
 		
+		// create the handler object
+		final Handler requestHandler = new Handler() 
+		{	
+			@Override
+			public void handleMessage(Message msg) {
+				
+				super.handleMessage(msg);
+				
+				if (msg.arg1 == RESULT_OK && msg.obj != null)
+				{
+					String geoResults = (String) msg.obj;
+					
+					// received the geo coded address data
+					Log.i("GEO RESULTS", geoResults);
+					
+					JSONhandler latHandler = new JSONhandler(geoResults);
+					JSONhandler lonHandler = new JSONhandler(geoResults);
+					
+					String latitude = latHandler.getJSONArray("results").getObjectAtIndex(0).getJSONObject("geometry").getJSONObject("location").getValue("lat");
+					String longitude = lonHandler.getJSONArray("results").getObjectAtIndex(0).getJSONObject("geometry").getJSONObject("location").getValue("lng");
+			
+					latlon = latitude + ":" + longitude;
+					
+					// create a messenger object for the handler
+					Messenger msngr = new Messenger(postHandler);
+					
+					// create a new intent for making the posting request
+					Intent request = UIFactory.makeIntent(DetailService.class);
+					
+					// add the intent extras for making the request and handling the response
+					request.putExtra(RequestService.MESSENGER_KEY, msngr);
+					request.putExtra(RequestService.URL_KEY, getString(R.string.account_ad_posting));
+					
+					// start the service
+					startService(request);
+				}
+			}
+		};
+		
 		Button submit = (Button) findViewById(R.id.add_ad_btn);
 		
 		if (submit != null)
@@ -140,7 +182,7 @@ UniArray sessionData;
 				public void onClick(View v) {
 					
 					// create a messenger object for the handler
-					Messenger msngr = new Messenger(postHandler);
+					Messenger msngr = new Messenger(requestHandler);
 					
 					// create a new intent for making the posting request
 					Intent request = UIFactory.makeIntent(DetailService.class);
@@ -216,10 +258,24 @@ UniArray sessionData;
 						// verify that there were no form errors
 						if (errors == false)
 						{
+							// set the location strings from the session data
+							String city = sessionData.getString("loc_city");
+							String state = sessionData.getString("loc_state");
+							String country = sessionData.getString("loc_country");
+							
+							city = city.replace(" ", "+");
+							state = state.replace(" ", "+");
+							country = country.replace(" ", "+");
+							
+							// create a address string
+							String addressData = city + "," + state + "," + country;
+							
+							// create a geo coding url with the address data and base url
+							String url = BASE_GEO_CODE_URL + addressData + "&sensor=true";
 							
 							// add the intent extras for making the request and handling the response
 							request.putExtra(RequestService.MESSENGER_KEY, msngr);
-							request.putExtra(RequestService.URL_KEY, getString(R.string.account_ad_posting));
+							request.putExtra(RequestService.URL_KEY, url);
 							
 							// start the service
 							startService(request);
@@ -288,6 +344,7 @@ UniArray sessionData;
 			ad.put("contact-phone", phoneNum);
 			ad.put("contact-email", email);
 			ad.put("poster", sessionData.getString("acct_username"));
+			ad.put("latlon", latlon);
 			
 			// adds the new json object to the ad category
 			json.accumulate(catString, ad);
@@ -301,5 +358,4 @@ UniArray sessionData;
 		
 		return json;
 	}
-	
 }
