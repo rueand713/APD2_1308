@@ -75,12 +75,15 @@ public class SignInActivity extends Activity {
 					// set the password from the json data
 					String userPassword = jsOn.getValue("acct_password");
 					
+					// set the password from the json data
+					String username = jsOn.getValue("acct_username");
+					
 					// verify that the password supplied matches the password in the json
 					if (userPassword != null && userPassword.equals(PASSWORD))
 					{
 						
 						// inform the user of invalid credentials
-						UIFactory.displayToast("Welcome back, " + USERNAME + "!", false);
+						UIFactory.displayToast("Welcome back, " + username + "!", false);
 						
 						// create the home screen intent
 						Intent homeScreen = UIFactory.makeIntent(HomeActivity.class);
@@ -131,7 +134,7 @@ public class SignInActivity extends Activity {
 						Intent accountRequest = UIFactory.makeIntent(DetailService.class);
 						
 						// retrieve the mapify cloudant query url
-						String urlValue = getString(R.string.accounts_uri) + USERNAME;
+						String urlValue = getString(R.string.accounts_uri) + USERNAME.toLowerCase();
 						
 						// add the url and messenger objects to the intent
 						accountRequest.putExtra("Url", urlValue);
@@ -208,7 +211,7 @@ public class SignInActivity extends Activity {
 								Intent fetchAccountData = UIFactory.makeIntent(DetailService.class);
 								
 								// retrieve the mapify cloudant query url
-								String urlValue = getString(R.string.accounts_query) + '"' + USERNAME + '"';
+								String urlValue = getString(R.string.accounts_query) + '"' + USERNAME.toLowerCase() + '"';
 								
 								// add the url and messenger objects to the intent
 								fetchAccountData.putExtra("Url", urlValue);
