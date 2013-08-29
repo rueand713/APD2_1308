@@ -144,6 +144,7 @@ public class NewAccountActivity extends Activity {
 					EditText emailField = (EditText) findViewById(R.id.newacct_email);
 					EditText fnameField = (EditText) findViewById(R.id.newacct_fname);
 					EditText lnameField = (EditText) findViewById(R.id.newacct_lname);
+					EditText detailsField = (EditText) findViewById(R.id.user_details);
 					
 					// grab the spinner data
 					Spinner stateField = (Spinner) findViewById(R.id.newacct_state);
@@ -151,9 +152,11 @@ public class NewAccountActivity extends Activity {
 					// set the string values from the referenced elements
 					String username = usernameField.getText().toString();
 					String password = passwordField.getText().toString();
+					String details = detailsField.getText().toString();
 					String passConfirm = passConfirmField.getText().toString();
 					String city = cityField.getText().toString();
 					String state = stateField.getSelectedItem().toString();
+					int stateIndex = stateField.getSelectedItemPosition();
 					String phone = phoneField.getText().toString();
 					String email = emailField.getText().toString();
 					String fname = fnameField.getText().toString();
@@ -172,8 +175,6 @@ public class NewAccountActivity extends Activity {
 					// iterate over the field data and set any error msgs to the error array
 					for (int i = 0; i < validateFields.length; i++)
 					{
-						if (validateFields[i] != null && validateFields[i].equals("") == false)
-						{
 							// switch statement for evaluating the text fields using i
 							switch(i) {
 							
@@ -225,7 +226,7 @@ public class NewAccountActivity extends Activity {
 								break;
 								
 							case 3:	// city
-								if (RegExManager.checkPattern(validateFields[i], "^[a-zA-z]{3,18}") == false)
+								if (RegExManager.checkPattern(validateFields[i], "^[a-zA-z]{2,18}") == false)
 								{
 									errors.add("City name must be 2 to 18 characters");
 								}
@@ -273,25 +274,18 @@ public class NewAccountActivity extends Activity {
 								
 								default:
 									break;
-							}
-								
-						}
-						else
-						{
-							UIFactory.displayToast("All fields are required", false);
-							break;
-						}
+							}	
 					}
-					
 					
 					// check that there were no errors reported before attempting account creation
 					if (errors.size() == 0)
 					{
 							
 						// add the user data to the JSON object
-						accountDetails.putString("_id", username);
+						accountDetails.putString("_id", username.toLowerCase());
 						accountDetails.putString("acct_username", username);
 						accountDetails.putString("acct_password", password);
+						accountDetails.putString("user_details", details);
 						accountDetails.putString("loc_city", city);
 						accountDetails.putString("loc_state", state);
 						accountDetails.putString("loc_country", "United States");
@@ -302,6 +296,14 @@ public class NewAccountActivity extends Activity {
 						accountDetails.putString("dob_day", birthDay);
 						accountDetails.putString("dob_month", birthMonth);
 						accountDetails.putString("dob_year", birthYear);
+						accountDetails.putString("acct_use_email", "true");
+						accountDetails.putString("acct_use_phone", "false");
+						accountDetails.putString("acct_user_rating", "100");
+						accountDetails.putString("acct_type", "free");
+						accountDetails.putString("loc_state_index", stateIndex + "");
+						accountDetails.putString("app_theme", "Theme A");
+						accountDetails.putString("user_ads", "");
+						accountDetails.putString("feedback_users", "");
 						
 						// save the stored user JSON data object
 						FileSystem.writeObjectFile(getApplication(), accountDetails, "data", true);
@@ -322,14 +324,14 @@ public class NewAccountActivity extends Activity {
 							//createAccount.putExtra(RequestService.AUTH_KEY, getString(R.string.account_session));
 							
 							// start the service
-							startService(createAccount);
-						
-							
+							startService(createAccount);	
 						}
 						
 					}
 					else
 					{
+						UIFactory.displayToast("All fields are required", false);
+						
 						// set the scroll view reference from layout
 						ScrollView errorView = (ScrollView) findViewById(R.id.errors_view);
 						
@@ -350,16 +352,17 @@ public class NewAccountActivity extends Activity {
 						if (errorLayout != null)
 						{
 							// iterate over the errors list and add a text view of each to the error layout
-							for (int i = 0; i < errors.size(); i++)
+							for (int j = 0; j < errors.size(); j++)
 							{
 								// set the error text
-								String errorText = errors.get(i);
+								String errorText = errors.get(j);
 								
 								// create a textView for the current error
-								TextView err = UIFactory.createTextView(errorText, i+2);
+								TextView err = UIFactory.createTextView(errorText, j+2);
 								
 								// add the textView to the layout
 								errorLayout.addView(err);
+							
 							}
 							
 							// inform the user error correction is needed

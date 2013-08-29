@@ -35,6 +35,9 @@ public class RequestService extends IntentService {
 		// verify that the bundle is valid
 		if (bundle != null)
 		{
+			// get the bool for new or existing account request
+			// this will determine the type of json to send
+			//boolean isNewAccount = bundle.getBoolean("isNewAccount");
 			
 			// set the string url to the bundle's url string
 			String url = bundle.getString(URL_KEY);
@@ -59,6 +62,26 @@ public class RequestService extends IntentService {
 				
 				// create a json object from the userdata
 				JSONObject json = JSONhandler.jsonify(userData);
+				
+				// nullify the cached user account details
+				userData = new UniArray();
+				FileSystem.writeObjectFile(getApplication(), userData, "data", true);
+				
+				/*
+				// check if this is a new account setup or update request
+				if (isNewAccount)
+				{
+					try {
+						
+						// add json objects to the json object
+						json.put("user_ads", new JSONObject());
+						json.put("feedback_users", new JSONObject());
+						
+					} catch (JSONException e) {
+						e.printStackTrace();
+						Log.e("JSONException", "Error adding null json objects in request service");
+					}
+				}*/
 				
 				// log the new json object
 				Log.i("JSON DATA", json.toString());

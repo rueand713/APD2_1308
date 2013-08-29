@@ -10,12 +10,16 @@
  */
 package com.randerson.mapify;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.randerson.classes.DetailService;
 
+import libs.ApplicationDefaults;
+import libs.FileSystem;
 import libs.InterfaceManager;
 import libs.JSONhandler;
+import libs.UniArray;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -35,6 +39,7 @@ public class SignInActivity extends Activity {
 	InterfaceManager UIFactory;
 	String USERNAME = null;
 	String PASSWORD = null;
+	String revision;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +68,12 @@ public class SignInActivity extends Activity {
 					
 					// init a JSONhandler singleton for parsing the data
 					JSONhandler jsOn = new JSONhandler(result);
+					
+					// cache the user data
+					saveSessionData(jsOn.returnJSONobject());
 
 					// set the password from the json data
-					String userPassword = jsOn.getValue("password");
+					String userPassword = jsOn.getValue("acct_password");
 					
 					// verify that the password supplied matches the password in the json
 					if (userPassword != null && userPassword.equals(PASSWORD))
@@ -82,6 +90,11 @@ public class SignInActivity extends Activity {
 							// start the home screen activity
 							startActivity(homeScreen);
 						}
+					}
+					else
+					{
+						// inform the user of invalid credentials (username)
+						UIFactory.displayToast("Incorrect Username or Password", false);
 					}
 				}
 			}
@@ -105,11 +118,13 @@ public class SignInActivity extends Activity {
 
 					// set the value string to the parsed json
 					JSONObject accounts = jsOn.getJSONArray("rows").getObjectAtIndex(0).returnJSONobject();
+					revision = jsOn.getJSONObject("value").getValue("rev");
 					boolean userExists = accounts.has("key");
 					
 					// verify that the user account is valid
 					if (userExists)
 					{
+						
 						Messenger accountMsngr = new Messenger(accountHandler);
 						
 						// create the intent to gather the detailed account data
@@ -215,6 +230,52 @@ public class SignInActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.no_opts, menu);
 		return true;
+	}
+	
+	public void saveSessionData(JSONObject json)
+	{
+		// save object for holding the session data
+		UniArray sessionData = new UniArray();
+		
+		// parse the json user data object for saving
+		try 
+		{
+			// store the account details string objects
+			sessionData.putString("user_fname", json.getString("user_fname"));
+			sessionData.putString("user_lname", json.getString("user_lname"));
+			sessionData.putString("user_details", json.getString("user_details"));
+			sessionData.putString("loc_city", json.getString("loc_city"));
+			sessionData.putString("loc_state", json.getString("loc_state"));
+			sessionData.putString("loc_state_index", json.getString("loc_state_index"));
+			sessionData.putString("loc_country", json.getString("loc_country"));
+			sessionData.putString("contact_email", json.getString("contact_email"));
+			sessionData.putString("contact_phone", json.getString("contact_phone"));
+			sessionData.putString("acct_username", json.getString("acct_username"));
+			sessionData.putString("acct_password", json.getString("acct_password"));
+			sessionData.putString("dob_day", json.getString("dob_day"));
+			sessionData.putString("dob_month", json.getString("dob_month"));
+			sessionData.putString("dob_year", json.getString("dob_year"));
+			sessionData.putString("acct_use_email", json.getString("acct_use_email"));
+			sessionData.putString("acct_use_phone", json.getString("acct_use_phone"));
+			sessionData.putString("acct_user_rating", json.getString("acct_user_rating"));
+			sessionData.putString("acct_type", json.getString("acct_type"));
+			sessionData.putString("app_theme", json.getString("app_theme"));
+			
+			// store the account details data objects
+			//sessionData.putString("user_ads", json.getJSONObject("user_ads") + "");
+			//sessionData.putString("feedback_users", json.getJSONObject("feedback_users").toString());
+		}
+		catch (JSONException e)
+		{
+			e.printStackTrace();
+		}
+		
+		// save the session data to storage
+		FileSystem.writeObjectFile(this, sessionData, "session", true);
+		
+		// save the revision value to shared preferences
+		ApplicationDefaults defaults = new ApplicationDefaults(this);
+		defaults.setString("revision", revision);
 	}
 
 }
